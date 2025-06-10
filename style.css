@@ -72,7 +72,7 @@ nav a {
 nav a:hover,
 nav a:focus-visible {
   background-color: #D19A9A;
-  color: white;
+  color: rgb(89, 64, 64);
   outline: none;
 }
 
@@ -90,7 +90,7 @@ nav a:focus-visible {
 }
 .hamburger:focus {
   outline-offset: 4px;
-  outline: 2px solid #D19A9A;
+  outline: 2px solid #f2bebe;
 }
 .hamburger .bar {
   width: 100%;
@@ -116,7 +116,7 @@ nav ul.nav-links {
     position: absolute;
     top: 64px;
     right: 24px;
-    background: #F5E6E6;
+    background: #f3dcdc;
     border-radius: 12px;
     box-shadow: 0 8px 20px rgba(0,0,0,0.12);
     flex-direction: column;
@@ -141,8 +141,45 @@ nav ul.nav-links {
   nav ul.nav-links li a:hover,
   nav ul.nav-links li a:focus-visible {
     background-color: #D19A9A;
-    color: white;
+    color: rgb(69, 51, 51);
     outline: none;
+  }
+}
+
+/* Nastaveni velikosti pisma u zarizeni */
+
+/* Logo (název hotelu) */
+.logo {
+  font-weight: 700;
+  font-size: 36px; /* desktop */
+  color: #a77676;
+  user-select: none;
+}
+@media (max-width: 768px) {
+  .logo {
+    font-size: 28px; /* tablet */
+  }
+}
+@media (max-width: 480px) {
+  .logo {
+    font-size: 22px; /* mobil */
+  }
+}
+/* Nadpisy sekcí */
+section h2 {
+  font-size: 36px; /* desktop */
+  font-weight: 700;
+  color: #5a0000;
+  margin-bottom: 24px;
+}
+@media (max-width: 768px) {
+  section h2 {
+    font-size: 28px; /* tablet */
+  }
+}
+@media (max-width: 480px) {
+  h2, section h2 {
+    font-size: 20px; /* mobil */
   }
 }
 
@@ -209,6 +246,47 @@ nav ul.nav-links {
   outline: none;
 }
 
+/* Countdown Section */
+.countdown-section {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 2px solid #f5c6cb;
+    border-radius: 10px; /* Zaoblení rohů */
+    max-width: 800px; /* Maximální šířka okenka */
+    margin: 20px auto; /* Centrování okenka */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Stín pro okenko */
+}
+
+.countdown-content h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #721c24;   
+    letter-spacing: 1px; /* Mezery mezi písmeny */
+}
+
+.countdown-content p {
+    font-size: 18px;  
+}
+
+#countdown {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+#timer {
+    color: #d83a51;
+}
+
+.odpocet {
+  font-size: 24px;
+  font-weight: bold; /* Tučné písmo */
+  color: #a7333f; /* Jiná barva */
+}
+
+
 main {
   max-width: 1200px;
   margin: 48px auto 64px;
@@ -254,12 +332,59 @@ section p {
   text-align: center;
   background: #f2e9e9;
   border-radius: 12px;
+  box-sizing: border-box; 
 }
 .carousel-item img {
   width: 100%;
-  height: 70%;
+  max-height: 250px; 
   border-radius: 12px;
   margin-bottom: 20px;
+  object-fit: cover; /*  zachování poměru stran */
+  object-position: center; /* centrování obrázku */
+}
+.carousel-item h3 {
+  word-break: break-word; /* zalomení dlouhých slov */
+  font-size: 1.3rem; /* Základní velikost písma pro nadpis */
+}
+.carousel-item p {
+  word-break: break-word; /* zalomení dlouhých slov */
+  font-size: 1rem; /* Základní velikost písma pro popis */
+}
+@media (max-width: 768px) {
+  .carousel-item img {
+    max-height: 200px; /* Zmenšení výšky obrázku na menších zařízeních */
+  }
+  .carousel-item h3 {
+    font-size: 1.1rem; /* Zmenšení velikosti písma pro nadpis na mobilu */
+  }
+  .carousel-item p {
+    font-size: 0.9rem; /* Zmenšení velikosti písma pro popis na mobilu */
+  }
+}
+@media (max-width: 480px) {
+  .carousel-item img {
+    max-height: 150px; /* Ještě menší výška obrázku na nejmenších zařízeních */
+  }
+  .carousel-item h3 {
+    font-size: 1rem; /* Ještě menší velikost písma pro nadpis na malém mobilu */
+  }
+  .carousel-item p {
+    font-size: 0.8rem; /* Ještě menší velikost písma pro popis na malém mobilu */
+  }
+}
+/* Pro pocitac */
+@media (min-width: 769px) {
+  .carousel-item img {
+    max-height: none; /* Odstranění max-height */
+    height: auto; /* Nastavení výšky na auto */
+    object-fit: unset; /* Odstranění object-fit */
+  }
+  .carousel-item h3 {
+    font-size: 1.5rem; /* Zvětšení velikosti písma pro nadpis na desktopu */
+  }
+  .carousel-item p {
+    font-size: 1.2rem; /* Zvětšení velikosti písma pro popis na desktopu */
+  }
 }
 .carousel-button {
   position: absolute;
@@ -351,51 +476,51 @@ section p {
 /* dotazy */
 
 .faq-container {
-  max-width: 900px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+max-width: 900px;
+margin: 0 auto;
+display: flex;
+flex-direction: column;
+gap: 16px;
 }
 details {
-  background: #f2e9e9;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(87, 62, 52, 0.1);
-  padding: 20px 28px;
-  cursor: pointer;
-  transition: box-shadow 0.3s ease;
+background: #f2e9e9;
+border-radius: 12px;
+box-shadow: 0 4px 15px rgba(87, 62, 52, 0.1);
+padding: 20px 28px;
+cursor: pointer;
+transition: box-shadow 0.3s ease;
 }
 details[open] {
-  box-shadow: 0 8px 30px rgba(87, 62, 52, 0.2);
+box-shadow: 0 8px 30px rgba(87, 62, 52, 0.2);
 }
 summary {
-  font-weight: 700;
-  font-size: 22px;
-  color: #5a4320;
-  list-style: none;
-  outline: none;
+font-weight: 700;
+font-size: 22px;
+color: #5a4320;
+list-style: none;
+outline: none;
 }
 summary::-webkit-details-marker {
-  display: none;
+display: none;
 }
 summary::before {
-  content: '+';
-  display: inline-block;
-  margin-right: 16px;
-  font-weight: 700;
-  color: #D19A9A;
-  transition: transform 0.3s ease;
+content: '+';
+display: inline-block;
+margin-right: 16px;
+font-weight: 700;
+color: #D19A9A;
+transition: transform 0.3s ease;
 }
 details[open] summary::before {
-  content: '−';
-  transform: rotate(180deg);
+content: '−';
+transform: rotate(180deg);
 }
 details p {
-  margin-top: 16px;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.6;
-  color: #432424;
+margin-top: 16px;
+font-weight: 400;
+font-size: 16px;
+line-height: 1.6;
+color: #432424;
 }
 
 /* formular */
@@ -406,31 +531,56 @@ details p {
   padding-top: 40px;
   padding-bottom: 40px;
 }
+
 form {
   display: flex;
   flex-direction: column;
   max-width: 440px;
   width: 100%;
 }
+
 form label {
   font-weight: 600;
   margin-bottom: 6px;
   color: #864e4e;
   font-size: 20px;
 }
-form input {
+
+form input[type="text"],
+form input[type="email"],
+form input[type="date"],
+form select {
   padding: 10px 16px;
   font-size: 16px;
   margin-bottom: 20px;
   border: 1px solid rgb(229, 231, 235);
   border-radius: 15px;
   transition: border-color 0.3s ease;
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  color: #4B3D3D;
+  background-color: #fff;
+  appearance: none; /* Odstranění výchozího vzhledu selectu */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23D19A9A' d='M7 10l5 5 5-5z'/%3E%3C/svg%3E"); /* Vlastní šipka */
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 20px;
 }
-form input:focus {
+
+form select {
+  cursor: pointer;
+}
+
+form input[type="text"]:focus,
+form input[type="email"]:focus,
+form input[type="date"]:focus,
+form select:focus {
   border-color: #D19A9A;
   outline: none;
 }
-form input[type="submit"] {
+
+
+form button[type="submit"] {
   background-color: #d6abab;
   border: none;
   color: #5a4320;
@@ -440,25 +590,31 @@ form input[type="submit"] {
   transition: background-color 0.3s ease, transform 0.3s ease;
   padding: 14px 24px;
   border-radius: 10px;
+  font-size: 18px;
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
-form input[type="submit"]:hover,
-form input[type="submit"]:focus-visible {
+
+form button[type="submit"]:hover,
+form button[type="submit"]:focus-visible {
   background-color: #C18A8A;
   transform: scale(1.05);
   outline: none;
 }
 
-/* footer */
-
-footer {
-  background-color: #fff9f9;
-  padding: 40px 24px;
-  text-align: center;
-  color: #5a4320;
-  font-size: 20px;
+/* mapa, kotakty*/
+#kontakt {
+  text-align: center; 
 }
+
+#kontakt h2 {
+  text-align: left; /* Zarovnání nadpisu doleva */
+}
+
 .mapa-container {
   margin-bottom: 24px;
+  display: flex;
+  justify-content: center; 
 }
 iframe {
   max-width: 100%;
@@ -467,58 +623,21 @@ iframe {
   border-radius: 12px;
   box-shadow: 0 4px 16px rgba(87,62,52,0.2);
 }
+.kontakt-info {
+  text-align: center; 
+}
 .kontakt-info p {
   margin: 6px 0;
   font-weight: 600;
+  display: inline-block; 
 }
 
-@media (max-width: 768px) {
-  .hlavni-navigace {
-    padding: 12px 16px;
-  }
-  nav ul.nav-links {
-    position: absolute;
-    top: 56px;
-    right: 16px;
-    width: 220px;
-  }
-  nav ul.nav-links li a {
-    font-size: 16px;
-  }
-  .hero-nadpis {
-    font-size: 36px;
-  }
-  .hero-podnadpis {
-    font-size: 18px;
-  }
-  section h2 {
-    font-size: 28px;
-  }
-  form {
-    max-width: 100%;
-  }
-  .recenze-karty {
-    flex-direction: column;
-    gap: 24px;
-  }
-  .carousel {
-    max-width: 100%;
-  }
-}
+/* footer */
 
-@media (max-width: 480px) {
-  .hlavni-navigace {
-    flex-direction: column;
-    gap: 12px;
-  }
-  nav ul.nav-links {
-    width: 90vw;
-    right: 5vw;
-  }
-  .hero-nadpis {
-    font-size: 28px;
-  }
-  .hero-podnadpis {
-    font-size: 16px;
-  }
+footer {
+background-color: #fff9f9;
+padding: 40px 24px;
+text-align: center;
+color: #5a4320;
+font-size: 20px;
 }
